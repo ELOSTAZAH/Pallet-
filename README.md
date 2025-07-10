@@ -33,6 +33,8 @@
             min-height: 100vh;
             padding: 20px;
             color: var(--dark-blue);
+            position: relative;
+            padding-bottom: 120px;
         }
 
         .container {
@@ -43,6 +45,7 @@
             box-shadow: 0 10px 30px rgba(10, 10, 42, 0.15);
             overflow: hidden;
             border: 2px solid var(--olive);
+            position: relative;
         }
 
         header {
@@ -165,6 +168,7 @@
             max-width: 100%;
             max-height: 100%;
             filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+            border-radius: 10px;
         }
 
         .book-info {
@@ -217,22 +221,42 @@
             gap: 15px;
         }
 
-        .page-btn {
-            background: var(--mint-green);
+        .palette-btn {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #c2e9fb);
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-blue);
+            position: relative;
+            overflow: hidden;
         }
 
-        .page-btn:hover {
-            transform: scale(1.1);
-            background: var(--olive);
-            color: white;
+        .palette-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+        }
+
+        .palette-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .palette-btn:active {
+            transform: scale(0.95);
         }
 
         .progress-bar {
@@ -394,11 +418,11 @@
             max-width: 500px;
         }
 
-        .difference-marker {
-            width: 30px;
-            height: 30px;
+        .palette-marker {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #ff6b6b;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #c2e9fb);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -407,10 +431,11 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
         }
 
-        .difference-marker.found {
-            background: #4caf50;
+        .palette-marker.found {
+            background: linear-gradient(135deg, #4caf50, #8bc34a);
             transform: scale(0.8);
         }
 
@@ -453,8 +478,8 @@
             max-width: 600px;
         }
 
-        .word-item {
-            background: var(--baby-blue);
+        .palette-word {
+            background: linear-gradient(135deg, #a6c1ee, #fbc2eb);
             padding: 15px 10px;
             border-radius: 15px;
             text-align: center;
@@ -462,15 +487,18 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: var(--dark-blue);
+            font-weight: bold;
         }
 
-        .word-item:hover {
+        .palette-word:hover {
             transform: translateY(-5px);
-            background: var(--sky-blue);
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        .word-item.selected {
-            background: #4caf50;
+        .palette-word.selected {
+            background: linear-gradient(135deg, #4caf50, #8bc34a);
             color: white;
             transform: scale(1.05);
         }
@@ -483,24 +511,42 @@
             justify-content: center;
         }
 
-        .tool-btn {
-            background: linear-gradient(to right, var(--mint-green), var(--sky-blue));
+        .palette-tool-btn {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #c2e9fb);
             color: var(--dark-blue);
             border: none;
-            padding: 12px 25px;
+            padding: 14px 28px;
             border-radius: 50px;
             font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            gap: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: all 0.3s;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
         }
 
-        .tool-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        .palette-tool-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+        }
+
+        .palette-tool-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .palette-tool-btn:active {
+            transform: translateY(2px);
         }
 
         .reward-container {
@@ -551,19 +597,86 @@
             color: #ff6b6b;
         }
 
-        footer {
+        .info-palette {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .palette-info-btn {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #c2e9fb);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: all 0.4s;
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .palette-info-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+        }
+
+        .palette-info-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .info-content {
+            position: fixed;
+            bottom: -300px;
+            left: 0;
+            width: 100%;
             background: linear-gradient(to right, #0a0a2a, #1a1a4a);
             padding: 25px;
             text-align: center;
             color: white;
             font-size: 1.2rem;
-            margin-top: 25px;
+            transition: bottom 0.5s ease;
+            z-index: 999;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+        }
+
+        .info-content.visible {
+            bottom: 0;
         }
 
         .creator-info {
             margin-top: 10px;
             font-size: 1.1rem;
             color: #a0e8d0;
+        }
+
+        .close-info {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-info:hover {
+            transform: scale(1.2);
+            color: var(--mint-green);
         }
 
         @media (max-width: 900px) {
@@ -583,6 +696,11 @@
             
             h1 {
                 font-size: 3rem;
+            }
+            
+            .palette-tool-btn {
+                padding: 12px 20px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -605,7 +723,7 @@
             <div class="books-container">
                 <div class="book animals" data-book="animals">
                     <div class="book-cover">
-                        <img src="https://images.vexels.com/media/users/3/205099/isolated/preview/3d3a9e0d618179d1e9b9c1b2a5c8005f-animal-book-illustration.png" alt="Animals Book">
+                        <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5pbWFsJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Animals Book">
                     </div>
                     <div class="book-info">
                         <div class="book-title">Animals Book</div>
@@ -615,7 +733,7 @@
                 
                 <div class="book fruits" data-book="fruits">
                     <div class="book-cover">
-                        <img src="https://static.vecteezy.com/system/resources/previews/010/353/285/non_2x/colourful-illustration-fruits-book-vector.jpg" alt="Fruits Book">
+                        <img src="https://images.unsplash.com/photo-1601001815894-4bb6c81416b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJ1aXQlMjBib29rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Fruits Book">
                     </div>
                     <div class="book-info">
                         <div class="book-title">Fruits Book</div>
@@ -625,7 +743,7 @@
                 
                 <div class="book vegetables" data-book="vegetables">
                     <div class="book-cover">
-                        <img src="https://static.vecteezy.com/system/resources/previews/013/399/721/non_2x/vegetables-book-cartoon-style-vector.jpg" alt="Vegetables Book">
+                        <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnZXRhYmxlJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Vegetables Book">
                     </div>
                     <div class="book-info">
                         <div class="book-title">Vegetables Book</div>
@@ -639,9 +757,9 @@
             <div class="activity-header">
                 <div class="book-name" id="bookName">Animals Book</div>
                 <div class="page-controls">
-                    <button class="page-btn" id="prevPage"><i class="fas fa-arrow-left"></i></button>
-                    <button class="page-btn" id="nextPage"><i class="fas fa-arrow-right"></i></button>
-                    <button class="page-btn" id="homeBtn"><i class="fas fa-home"></i></button>
+                    <button class="palette-btn" id="prevPage"><i class="fas fa-arrow-left"></i></button>
+                    <button class="palette-btn" id="nextPage"><i class="fas fa-arrow-right"></i></button>
+                    <button class="palette-btn" id="homeBtn"><i class="fas fa-home"></i></button>
                 </div>
             </div>
             
@@ -664,23 +782,23 @@
                         <li>5 - Color the background green</li>
                     </ul>
                     <div class="tools">
-                        <button class="tool-btn" id="resetBtn"><i class="fas fa-undo"></i> Reset Drawing</button>
-                        <button class="tool-btn" id="rewardBtn"><i class="fas fa-gift"></i> Show Reward</button>
+                        <button class="palette-tool-btn" id="resetBtn"><i class="fas fa-undo"></i> Reset Drawing</button>
+                        <button class="palette-tool-btn" id="rewardBtn"><i class="fas fa-gift"></i> Show Reward</button>
                     </div>
                 </div>
                 
                 <div class="interactive-panel">
                     <div class="coloring-page" id="coloringPage">
                         <div class="coloring-canvas-container">
-                            <img src="https://i.pinimg.com/736x/1e/2d/1d/1e2d1d9e4b7c4c8e8b0f0b4e4d4c4b4e4.jpg" alt="Lion" class="reference-image" id="referenceImage">
+                            <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlvbiUyMGNvbG9yaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Lion" class="reference-image" id="referenceImage">
                             <canvas class="coloring-canvas" id="coloringCanvas" width="350" height="350"></canvas>
                         </div>
                     </div>
                     
                     <div class="difference-game" id="differenceGame" style="display:none">
                         <div class="difference-images">
-                            <img src="https://i.pinimg.com/736x/1e/2d/1d/1e2d1d9e4b7c4c8e8b0f0b4e4d4c4b4e4.jpg" alt="Lion Original" class="difference-image" id="diffImage1">
-                            <img src="https://i.pinimg.com/736x/1e/2d/1d/1e2d1d9e4b7c4c8e8b0f0b4e4d4c4b4e4.jpg" alt="Lion with Differences" class="difference-image" id="diffImage2">
+                            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5pbWFsJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Lion Original" class="difference-image" id="diffImage1">
+                            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5pbWFsJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Lion with Differences" class="difference-image" id="diffImage2">
                         </div>
                         <div class="difference-markers" id="differenceMarkers">
                             <!-- Markers will be added dynamically -->
@@ -689,8 +807,8 @@
                     
                     <div class="word-game" id="wordGame" style="display:none">
                         <div class="target-word" id="targetWord">
-                            <div class="target-image">🐝</div>
-                            <div>BEE</div>
+                            <div class="target-image">🦁</div>
+                            <div>LION</div>
                         </div>
                         <div class="word-grid" id="wordGrid">
                             <!-- Word items will be added dynamically -->
@@ -706,11 +824,20 @@
                 <div class="reward heart">❤️</div>
             </div>
         </div>
-        
-        <footer>
-            <p>Palette Zone • Educational Books System for Autistic Children</p>
-            <p class="creator-info">Created by Hoda Mostafa Hamdy Aly • Contact: elostazahx@email.com</p>
-        </footer>
+    </div>
+
+    <div class="info-palette">
+        <button class="palette-info-btn" id="infoBtn">
+            <i class="fas fa-palette"></i>
+        </button>
+    </div>
+    
+    <div class="info-content" id="infoContent">
+        <button class="close-info" id="closeInfo">
+            <i class="fas fa-times"></i>
+        </button>
+        <p>Palette Zone • Educational Books System for Autistic Children</p>
+        <p class="creator-info">Created by Hoda Mostafa Hamdy Aly • Contact: elostazahx@email.com</p>
     </div>
 
     <script>
@@ -719,33 +846,33 @@
             animals: {
                 name: "Animals Book",
                 images: [
-                    "https://i.pinimg.com/736x/1e/2d/1d/1e2d1d9e4b7c4c8e8b0f0b4e4d4c4b4e4.jpg", // Lion
-                    "https://i.pinimg.com/736x/2a/3d/5f/2a3d5f5c5c5c5c5c5c5c5c5c5c5c5c5c.jpg", // Elephant
-                    "https://i.pinimg.com/736x/3b/4e/8a/3b4e8a8a8a8a8a8a8a8a8a8a8a8a8a8a.jpg", // Giraffe
-                    "https://i.pinimg.com/736x/4c/5f/94/4c5f9494949494949494949494949494.jpg", // Monkey
-                    "https://i.pinimg.com/736x/5d/70/9e/5d709e9e9e9e9e9e9e9e9e9e9e9e9e9e.jpg"  // Zebra
+                    "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlvbiUyMGNvbG9yaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", // Lion
+                    "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxlcGhhbnQlMjBjb2xvcmluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60", // Elephant
+                    "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxlcGhhbnQlMjBjb2xvcmluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60", // Giraffe
+                    "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5pbWFsJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60", // Monkey
+                    "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5pbWFsJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"  // Zebra
                 ],
                 words: ["LION", "ELEPHANT", "GIRAFFE", "MONKEY", "ZEBRA"]
             },
             fruits: {
                 name: "Fruits Book",
                 images: [
-                    "https://i.pinimg.com/736x/83/99/6c/83996c8e5c9d8f7f0c5e9d0c6a0c7c7c.jpg", // Apple
-                    "https://i.pinimg.com/736x/94/aa/75/94aa7575757575757575757575757575.jpg", // Banana
-                    "https://i.pinimg.com/736x/a5/bb/87/a5bb8787878787878787878787878787.jpg", // Orange
-                    "https://i.pinimg.com/736x/b6/cc/99/b6cc9999999999999999999999999999.jpg", // Grapes
-                    "https://i.pinimg.com/736x/c7/dd/ab/c7ddabababababababababababababab.jpg"  // Watermelon
+                    "https://images.unsplash.com/photo-1601001815894-4bb6c81416b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJ1aXQlMjBib29rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", // Apple
+                    "https://images.unsplash.com/photo-1601001815894-4bb6c81416b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJ1aXQlMjBib29rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", // Banana
+                    "https://images.unsplash.com/photo-1601001815894-4bb6c81416b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJ1aXQlMjBib29rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", // Orange
+                    "https://images.unsplash.com/photo-1601001815894-4bb6c81416b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJ1aXQlMjBib29rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60", // Grapes
+                    "https://images.unsplash.com/photo-1601001815894-4bb6c81416b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJ1aXQlMjBib29rfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"  // Watermelon
                 ],
                 words: ["APPLE", "BANANA", "ORANGE", "GRAPES", "WATERMELON"]
             },
             vegetables: {
                 name: "Vegetables Book",
                 images: [
-                    "https://i.pinimg.com/736x/9a/3e/7f/9a3e7f9e0c0c9e0c0c9e0c0c9e0c0c9e.jpg", // Carrot
-                    "https://i.pinimg.com/736x/d8/4f/91/d84f9191919191919191919191919191.jpg", // Tomato
-                    "https://i.pinimg.com/736x/e7/60/a5/e760a5a5a5a5a5a5a5a5a5a5a5a5a5a5.jpg", // Broccoli
-                    "https://i.pinimg.com/736x/f6/71/b9/f671b9b9b9b9b9b9b9b9b9b9b9b9b9b9.jpg", // Potato
-                    "https://i.pinimg.com/736x/05/82/cd/0582cdcdcdcdcdcdcdcdcdcdcdcdcdcd.jpg"  // Cucumber
+                    "https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnZXRhYmxlJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60", // Carrot
+                    "https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnZXRhYmxlJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60", // Tomato
+                    "https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnZXRhYmxlJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60", // Broccoli
+                    "https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnZXRhYmxlJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60", // Potato
+                    "https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnZXRhYmxlJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"  // Cucumber
                 ],
                 words: ["CARROT", "TOMATO", "BROCCOLI", "POTATO", "CUCUMBER"]
             }
@@ -774,6 +901,18 @@
         const wordGrid = document.getElementById('wordGrid');
         const differenceMarkers = document.getElementById('differenceMarkers');
         const progressBar = document.getElementById('progressBar');
+        const infoContent = document.getElementById('infoContent');
+        const infoBtn = document.getElementById('infoBtn');
+        const closeInfo = document.getElementById('closeInfo');
+        
+        // Toggle info panel
+        infoBtn.addEventListener('click', () => {
+            infoContent.classList.add('visible');
+        });
+        
+        closeInfo.addEventListener('click', () => {
+            infoContent.classList.remove('visible');
+        });
         
         // Update progress bar
         function updateProgress() {
@@ -881,7 +1020,7 @@
                 differenceMarkers.innerHTML = '';
                 for (let i = 1; i <= 15; i++) {
                     const marker = document.createElement('div');
-                    marker.className = 'difference-marker';
+                    marker.className = 'palette-marker';
                     marker.textContent = i;
                     marker.addEventListener('click', () => {
                         marker.classList.add('found');
@@ -900,7 +1039,7 @@
                 
                 // Set book-specific content
                 const target = books[currentBook].words[currentImageIndex];
-                let emoji = "🐝";
+                let emoji = "🦁";
                 
                 if (currentBook === 'animals') {
                     if (target === "LION") emoji = "🦁";
@@ -954,7 +1093,7 @@
                 // Add words to grid
                 words.forEach(word => {
                     const wordItem = document.createElement('div');
-                    wordItem.className = 'word-item';
+                    wordItem.className = 'palette-word';
                     wordItem.textContent = word;
                     wordItem.addEventListener('click', () => {
                         if (word === target) {
